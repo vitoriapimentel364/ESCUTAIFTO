@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EscutaIFTO - Acolhimento e Proteção Estudantil</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <h2>Escuta<span class="logo__highlight">IFTO</span></h2>
+            </div>
+            <button class="nav__menu-btn" id="menuBtn" aria-label="Menu">
+                ☰
+            </button>
+            <ul class="nav__menu" id="navMenu">
+                <li class="nav__item">
+                    <a href="#inicio" class="nav__link">Início</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#chat" class="nav__link">Conversar</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#tickets" class="nav__link">Meus Tickets</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#admin" class="nav__link">Administrativo</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção Inicial -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero__content">
+                <h1 class="hero__title">Escuta<span class="logo__highlight">IFTO</span></h1>
+                <p class="hero__subtitle">Plataforma Inteligente de Acolhimento e Proteção Estudantil</p>
+                <p class="hero__description">
+                    O EscutaIFTO é um espaço seguro e acolhedor para estudantes do Instituto Federal do Tocantins. 
+                    Aqui você pode relatar situações, buscar orientação e receber apoio em um ambiente de escuta ativa e sigiloso.
+                </p>
+                <div class="hero__info">
+                    <div class="info__card">
+                        <h3>🤝 Acolhimento</h3>
+                        <p>Escuta respeitosa e sem julgamentos</p>
+                    </div>
+                    <div class="info__card">
+                        <h3>🛡️ Proteção</h3>
+                        <p>Cuidado integral à comunidade estudantil</p>
+                    </div>
+                    <div class="info__card">
+                        <h3>📋 Encaminhamento</h3>
+                        <p>Orientação para os canais adequados</p>
+                    </div>
+                </div>
+                <a href="#chat" class="hero__btn">Começar Conversa</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Chat -->
+    <section id="chat" class="chat-section">
+        <div class="container">
+            <h2 class="section__title">Conversa Acolhedora</h2>
+            <p class="section__subtitle">Um espaço seguro para você desabafar e buscar orientação</p>
+            
+            <!-- Identificação -->
+            <div class="identification" id="identification">
+                <h3>Vamos nos conhecer</h3>
+                <p class="identification__note">*Use apenas dados fictícios. Não são solicitadas senhas pessoais.</p>
+                <div class="form__group">
+                    <label for="studentName">Nome (fictício):</label>
+                    <input type="text" id="studentName" placeholder="Ex: Maria Silva" class="form__input">
+                </div>
+                <div class="form__group">
+                    <label for="studentMat">Matrícula (fictícia):</label>
+                    <input type="text" id="studentMat" placeholder="Ex: 2024001234" class="form__input">
+                </div>
+                <div class="situation__selector">
+                    <h4>Sobre o que você quer conversar?</h4>
+                    <div class="situation__options">
+                        <button class="situation__btn" data-situation="comigo">Aconteceu comigo</button>
+                        <button class="situation__btn" data-situation="presenciei">Presenciei uma situação</button>
+                        <button class="situation__btn" data-situation="orientacao">Quero orientação</button>
+                    </div>
+                </div>
+                <button class="start__chat-btn" id="startChatBtn">Iniciar Conversa</button>
+            </div>
+
+            <!-- Chat Interface -->
+            <div class="chat__container" id="chatContainer" style="display: none;">
+                <div class="chat__header">
+                    <div class="chat__bot-info">
+                        <div class="bot__avatar">🤖</div>
+                        <div>
+                            <h4>EscutaIFTO - Assistente Virtual</h4>
+                            <p class="bot__status">Online - Acolhimento</p>
+                        </div>
+                    </div>
+                    <div class="chat__user-info">
+                        <span id="chatUserName"></span> | <span id="chatUserMat"></span> | <span id="chatSituation"></span>
+                    </div>
+                </div>
+                
+                <div class="chat__messages" id="chatMessages">
+                    <!-- Mensagens serão adicionadas dinamicamente -->
+                </div>
+                
+                <div class="chat__input-area">
+                    <input type="text" id="userMessageInput" placeholder="Digite sua mensagem..." class="chat__input">
+                    <button class="chat__send-btn" id="sendMessageBtn">Enviar</button>
+                </div>
+                
+                <div class="chat__actions">
+                    <button class="action__btn" id="registerCaseBtn">📝 Registrar Caso</button>
+                    <button class="action__btn" id="urgentBtn">🚨 Necessita avaliação humana imediata</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Formulário de Caso -->
+    <section id="caseFormSection" class="case-form-section" style="display: none;">
+        <div class="container">
+            <h2 class="section__title">Registro do Caso</h2>
+            <p class="section__subtitle">Organize as informações para encaminhamento adequado</p>
+            
+            <form class="case__form" id="caseForm">
+                <div class="form__row">
+                    <div class="form__group">
+                        <label for="caseName">Nome do estudante:</label>
+                        <input type="text" id="caseName" class="form__input" readonly>
+                    </div>
+                    <div class="form__group">
+                        <label for="caseMat">Matrícula:</label>
+                        <input type="text" id="caseMat" class="form__input" readonly>
+                    </div>
+                </div>
+                
+                <div class="form__group">
+                    <label for="caseSituation">Situação relatada:</label>
+                    <input type="text" id="caseSituation" class="form__input" readonly>
+                </div>
+                
+                <div class="form__group">
+                    <label for="caseDescription">Descrição detalhada do caso:*</label>
+                    <textarea id="caseDescription" class="form__textarea" rows="6" placeholder="Descreva o que aconteceu de forma clara e objetiva..." required></textarea>
+                </div>
+                
+                <div class="form__row">
+                    <div class="form__group">
+                        <label for="caseCategory">Categoria:*</label>
+                        <select id="caseCategory" class="form__select" required>
+                            <option value="">Selecione...</option>
+                            <option value="racismo_discriminacao">Racismo e discriminação</option>
+                            <option value="bullying_violencia">Bullying e violência</option>
+                            <option value="assedio_moral_sexual">Assédio moral e sexual</option>
+                            <option value="saude_emocional">Saúde emocional</option>
+                            <option value="autolesao_risco_suicidio">Autolesão e risco de suicídio</option>
+                            <option value="problemas_academicos">Problemas acadêmicos</option>
+                            <option value="conflitos_convivencia">Conflitos de convivência</option>
+                            <option value="vulnerabilidade_social">Vulnerabilidade social</option>
+                            <option value="outros">Outros assuntos</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <label for="casePriority">Prioridade sugerida:*</label>
+                        <select id="casePriority" class="form__select" required>
+                            <option value="">Selecione...</option>
+                            <option value="baixa">Baixa</option>
+                            <option value="media">Média</option>
+                            <option value="alta">Alta</option>
+                            <option value="urgente">Urgente</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form__group">
+                    <label for="caseReferral">Encaminhamento recomendado (apenas sugestão):</label>
+                    <textarea id="caseReferral" class="form__textarea" rows="4" placeholder="Sugestões de encaminhamento para análise dos profissionais responsáveis..."></textarea>
+                    <small class="form__help">*A decisão sobre providências pertence aos profissionais responsáveis</small>
+                </div>
+                
+                <div class="form__actions">
+                    <button type="button" class="btn__secondary" id="cancelCaseBtn">Cancelar</button>
+                    <button type="submit" class="btn__primary">Gerar Ticket</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Seção Tickets -->
+    <section id="tickets" class="tickets-section">
+        <div class="container">
+            <h2 class="section__title">Sistema de Tickets Demonstrativo</h2>
+            <p class="section__subtitle">Acompanhe o andamento dos casos</p>
+            
+            <div class="tickets__info">
+                <p><strong>Simulação:</strong> Os tickets são armazenados localmente para demonstração. Não há envio real de dados.</p>
+            </div>
+            
+            <div class="tickets__list" id="ticketsList">
+                <p class="no__tickets">Nenhum ticket registrado ainda.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Administrativa -->
+    <section id="admin" class="admin-section">
+        <div class="container">
+            <h2 class="section__title">Área Administrativa Simulada</h2>
+            <p class="section__subtitle">Visualização restrita - Apenas para demonstração</p>
+            
+            <div class="admin__login" id="adminLogin">
+                <h3>Acesso Restrito</h3>
+                <p class="admin__note">*Ambiente simulado. Não utilize senhas reais.</p>
+                <div class="form__group">
+                    <label for="adminUser">Usuário (fictício):</label>
+                    <input type="text" id="adminUser" placeholder="Ex: coordenacao" class="form__input">
+                </div>
+                <div class="form__group">
+                    <label for="adminPass">Senha (fictícia):</label>
+                    <input type="password" id="adminPass" placeholder="Ex: demo123" class="form__input">
+                </div>
+                <button class="admin__login-btn" id="adminLoginBtn">Acessar</button>
+                <p class="admin__help">Dica para demonstração: usuário "coordenacao" e senha "demo123"</p>
+            </div>
+            
+            <div class="admin__panel" id="adminPanel" style="display: none;">
+                <div class="admin__header">
+                    <h3>Painel de Administração - EscutaIFTO</h3>
+                    <button class="logout__btn" id="logoutBtn">Sair</button>
+                </div>
+                
+                <div class="admin__stats">
+                    <div class="stat__card">
+                        <h4 id="totalTickets">0</h4>
+                        <p>Total de Tickets</p>
+                    </div>
+                    <div class="stat__card">
+                        <h4 id="openTickets">0</h4>
+                        <p>Abertos</p>
+                    </div>
+                    <div class="stat__card">
+                        <h4 id="inProgressTickets">0</h4>
+                        <p>Em Andamento</p>
+                    </div>
+                    <div class="stat__card">
+                        <h4 id="completedTickets">0</h4>
+                        <p>Concluídos</p>
+                    </div>
+                    <div class="stat__card">
+                        <h4 id="urgentTickets">0</h4>
+                        <p>Urgentes</p>
+                    </div>
+                    <div class="stat__card">
+                        <h4 id="crisisTickets">0</h4>
+                        <p>Protocolo de Crise</p>
+                    </div>
+                </div>
+                
+                <div class="admin__notifications">
+                    <h4>🔔 Notificações Simuladas</h4>
+                    <div class="notification__item">
+                        <strong>E-mail (simulado):</strong> Novo ticket registrado no sistema demonstrativo
+                    </div>
+                    <div class="notification__item">
+                        <strong>Lembrete (simulado):</strong> Tickets pendentes aguardando análise dos profissionais responsáveis
+                    </div>
+                    <div class="notification__item">
+                        <strong>WhatsApp (simulado):</strong> Casos urgentes necessitam avaliação humana imediata
+                    </div>
+                    <p class="sim__note">*Todas as notificações são apenas simulações, não há envio real.</p>
+                </div>
+                
+                <div class="admin__tickets">
+                    <h4>Tickets</h4>
+                    <p class="admin__info-note">Clique em um ticket para ver os detalhes completos.</p>
+                    <div class="admin__tickets-list" id="adminTicketsList">
+                        <p class="no__tickets">Nenhum ticket registrado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Detalhes do Ticket -->
+    <div id="ticketDetailModal" class="modal" style="display: none;">
+        <div class="modal__content" style="max-width: 700px;">
+            <div class="modal__header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                <h3 id="ticketDetailTitle">Detalhes do Ticket</h3>
+                <span class="modal__close" id="closeTicketDetailModal">&times;</span>
+            </div>
+            <div class="modal__body" id="ticketDetailBody">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Urgência -->
+    <div id="urgentModal" class="modal" style="display: none;">
+        <div class="modal__content">
+            <div class="modal__header urgent__header">
+                <h3>🚨 AVALIAÇÃO HUMANA IMEDIATA NECESSÁRIA</h3>
+                <span class="modal__close" id="closeUrgentModal">&times;</span>
+            </div>
+            <div class="modal__body">
+                <p class="urgent__message">
+                    <strong>ATENÇÃO:</strong> Com base nas informações fornecidas, identificamos indícios que requerem avaliação humana imediata.
+                </p>
+                <p>Os seguintes canais podem ser acionados pelos profissionais responsáveis:</p>
+                <ul class="urgent__channels">
+                    <li>🏥 Serviço de Atendimento ao Estudante</li>
+                    <li>🛡️ Núcleo de Apoio à Ética e Cidadania</li>
+                    <li>🚨 Segurança Institucional (em casos de risco imediato)</li>
+                    <li>📞 Ouvidoria do IFTO</li>
+                </ul>
+                <p class="urgent__warning">
+                    <strong>Importante:</strong> Esta é uma sinalização para avaliação dos profissionais responsáveis. 
+                    A IA não diagnostica e não substitui a avaliação humana qualificada.
+                </p>
+                <button class="modal__btn" id="okUrgentBtn">Entendi</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3>Escuta<span class="logo__highlight">IFTO</span></h3>
+                    <p>Plataforma de Acolhimento e Proteção Estudantil</p>
+                    <p class="footer__note">Projeto Acadêmico - Demonstração Funcional</p>
+                </div>
+                <div class="footer__section">
+                    <h4>Princípios</h4>
+                    <ul>
+                        <li>• Escuta ativa e respeitosa</li>
+                        <li>• Sigilo e acolhimento</li>
+                        <li>• Encaminhamento qualificado</li>
+                        <li>• Avaliação humana prioritária</li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4>Importante</h4>
+                    <ul>
+                        <li>• IA não se apresenta como psicóloga</li>
+                        <li>• Não diagnostica</li>
+                        <li>• Decisões são dos profissionais</li>
+                        <li>• Dados fictícios apenas</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 EscutaIFTO - Projeto Acadêmico. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

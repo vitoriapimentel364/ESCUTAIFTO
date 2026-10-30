@@ -1,0 +1,1195 @@
+/* Reset e Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    line-height: 1.6;
+    color: #2d3748;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Cores IFTO - Verde Institucional */
+:root {
+    --primary-color: #1a7f37;
+    --primary-dark: #145f2a;
+    --primary-light: #22c55e;
+    --secondary-color: #2563eb;
+    --accent-color: #f59e0b;
+    --danger-color: #dc2626;
+    --warning-color: #ea580c;
+    --success-color: #16a34a;
+    --bg-light: #f8fafc;
+    --bg-gray: #f1f5f9;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --border-color: #e2e8f0;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header e Navegação */
+.header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    box-shadow: var(--shadow-lg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.nav__logo h2 {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.logo__highlight {
+    color: #86efac;
+}
+
+.nav__menu-btn {
+    display: none;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav__menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav__link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    display: block;
+}
+
+.nav__link:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Seção Hero */
+.hero {
+    background: linear-gradient(135deg, var(--bg-light) 0%, #e0f2fe 100%);
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.hero__content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero__title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.hero__subtitle {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.hero__description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.hero__info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.info__card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--primary-color);
+}
+
+.info__card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.info__card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.hero__btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 0.75rem 2rem;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--shadow);
+}
+
+.hero__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Seções */
+.chat-section,
+.tickets-section,
+.admin-section,
+.case-form-section {
+    padding: 3rem 0;
+}
+
+.chat-section {
+    background: var(--bg-gray);
+}
+
+.tickets-section {
+    background: var(--bg-light);
+}
+
+.admin-section {
+    background: #fef2f2;
+}
+
+.case-form-section {
+    background: #f0f9ff;
+}
+
+.section__title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.section__subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+/* Identificação */
+.identification {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.identification h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.identification__note {
+    text-align: center;
+    color: var(--warning-color);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.form__group {
+    margin-bottom: 1rem;
+}
+
+.form__group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.form__input,
+.form__textarea,
+.form__select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
+}
+
+.form__input:focus,
+.form__textarea:focus,
+.form__select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form__textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.situation__selector {
+    margin: 1.5rem 0;
+}
+
+.situation__selector h4 {
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.situation__options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.situation__btn {
+    padding: 0.75rem;
+    background: var(--bg-gray);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.situation__btn:hover {
+    background: #e2e8f0;
+    border-color: var(--primary-color);
+}
+
+.situation__btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.start__chat-btn,
+.admin__login-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.start__chat-btn:hover,
+.admin__login-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Chat Container */
+.chat__container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.chat__header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 1rem;
+}
+
+.chat__bot-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.bot__avatar {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.chat__bot-info h4 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.bot__status {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.chat__user-info {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.chat__messages {
+    height: 400px;
+    overflow-y: auto;
+    padding: 1rem;
+    background: #f9fafb;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.message {
+    max-width: 80%;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    word-wrap: break-word;
+}
+
+.message--bot {
+    background: white;
+    align-self: flex-start;
+    border: 1px solid var(--border-color);
+    border-bottom-left-radius: 4px;
+}
+
+.message--user {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.message__time {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    margin-top: 0.3rem;
+    display: block;
+}
+
+.chat__input-area {
+    display: flex;
+    padding: 0.75rem;
+    gap: 0.5rem;
+    background: white;
+    border-top: 1px solid var(--border-color);
+}
+
+.chat__input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 25px;
+    font-family: 'Inter', sans-serif;
+}
+
+.chat__input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.chat__send-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.chat__send-btn:hover {
+    background: var(--primary-dark);
+}
+
+.chat__actions {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: var(--bg-gray);
+    flex-wrap: wrap;
+}
+
+.action__btn {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.6rem;
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+.action__btn:hover {
+    background: var(--bg-gray);
+    border-color: var(--primary-color);
+}
+
+/* Formulário de Caso */
+.case__form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form__help {
+    color: var(--warning-color);
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 0.3rem;
+}
+
+.form__actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn__primary,
+.btn__secondary {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+}
+
+.btn__primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+}
+
+.btn__secondary {
+    background: var(--bg-gray);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+
+/* Tickets */
+.tickets__info {
+    background: #e0f2fe;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.tickets__list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ticket__card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.ticket__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.ticket__number {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.ticket__status {
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.status__aberto {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status__andamento {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.status__concluido {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.ticket__info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.ticket__section {
+    margin-bottom: 0.75rem;
+}
+
+.ticket__section h5 {
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.ticket__section p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    background: var(--bg-gray);
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.no__tickets {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+}
+
+/* Área Administrativa */
+.admin__login {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.admin__login h3 {
+    color: var(--danger-color);
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.admin__note {
+    text-align: center;
+    color: var(--warning-color);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.admin__help {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    margin-top: 0.75rem;
+}
+
+.admin__panel {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.admin__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.admin__header h3 {
+    color: var(--danger-color);
+}
+
+.logout__btn {
+    padding: 0.5rem 1rem;
+    background: var(--danger-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.admin__stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat__card {
+    background: linear-gradient(135deg, var(--bg-gray) 0%, white 100%);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid var(--border-color);
+}
+
+.stat__card h4 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+}
+
+.stat__card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.admin__notifications {
+    background: #fef3c7;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--warning-color);
+}
+
+.admin__notifications h4 {
+    color: var(--warning-color);
+    margin-bottom: 0.75rem;
+}
+
+.notification__item {
+    background: white;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.sim__note {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+.admin__tickets h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.admin__ticket-card {
+    background: var(--bg-gray);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    border: 1px solid var(--border-color);
+}
+
+.admin__ticket-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+.admin__ticket-number {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.admin__ticket-status {
+    padding: 0.2rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+}
+
+.admin__ticket-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal__content {
+    background: white;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+}
+
+.modal__header {
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.urgent__header {
+    background: linear-gradient(135deg, var(--danger-color) 0%, #991b1b 100%);
+    color: white;
+}
+
+.modal__header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.modal__close {
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.modal__body {
+    padding: 1.5rem;
+}
+
+.urgent__message {
+    color: var(--danger-color);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.urgent__channels {
+    background: var(--bg-gray);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    list-style: none;
+}
+
+.urgent__channels li {
+    padding: 0.3rem 0;
+    color: var(--text-primary);
+}
+
+.urgent__warning {
+    background: #fef2f2;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--danger-color);
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.modal__btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--danger-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Rodapé */
+.footer {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #0f4c2a 100%);
+    color: white;
+    padding: 2rem 0 1rem;
+}
+
+.footer__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer__section h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.footer__section h4 {
+    margin-bottom: 0.75rem;
+    color: #86efac;
+}
+
+.footer__section p {
+    margin-bottom: 0.3rem;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+.footer__section ul {
+    list-style: none;
+}
+
+.footer__section li {
+    margin-bottom: 0.3rem;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+.footer__note {
+    font-style: italic;
+    color: #86efac !important;
+}
+
+.footer__bottom {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 480px) {
+    .ticket__info {
+        grid-template-columns: 1fr;
+    }
+    
+    .ticket__section p {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .admin__ticket-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat__card h4 {
+        font-size: 1.5rem;
+    }
+    
+    .modal__content {
+        margin: 0.4rem;
+        max-height: 95vh;
+        width: calc(100% - 0.8rem);
+    }
+    
+    .modal__body {
+        padding: 1rem;
+    }
+    
+    .modal__body [style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .modal__body select,
+    .modal__body textarea,
+    .modal__body input {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav__menu-btn {
+        display: block;
+        flex-shrink: 0;
+    }
+    
+    .nav__menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        margin-top: 1rem;
+    }
+    
+    .nav__menu.active {
+        display: flex;
+    }
+    
+    .nav__item {
+        width: 100%;
+    }
+    
+    .nav__link {
+        padding: 0.75rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .hero__title {
+        font-size: 2rem;
+    }
+    
+    .hero__subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero__description {
+        text-align: center;
+    }
+    
+    .section__title {
+        font-size: 1.8rem;
+    }
+    
+    .identification,
+    .case__form,
+    .admin__login,
+    .admin__panel {
+        padding: 1.5rem;
+        margin: 0 0.5rem;
+    }
+    
+    .case__form {
+        padding: 1.25rem;
+    }
+    
+    .form__row {
+        grid-template-columns: 1fr;
+    }
+    
+    .chat__messages {
+        height: 300px;
+    }
+    
+    .message {
+        max-width: 90%;
+    }
+    
+    .chat__actions {
+        flex-direction: column;
+    }
+    
+    .action__btn {
+        min-width: 100%;
+    }
+    
+    .form__actions {
+        flex-direction: column;
+    }
+    
+    .ticket__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .admin__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .footer__content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .nav {
+        padding: 0.65rem;
+        gap: 0.35rem;
+    }
+    
+    .nav__logo h2 {
+        font-size: 1.25rem;
+    }
+    
+    .nav__menu-btn {
+        font-size: 1.2rem;
+        padding: 0.2rem 0.6rem;
+    }
+    
+    .hero__title {
+        font-size: 1.6rem;
+    }
+    
+    .hero {
+        padding: 1.5rem 0;
+    }
+    
+    .chat-section,
+    .tickets-section,
+    .admin-section,
+    .case-form-section {
+        padding: 1.5rem 0;
+    }
+    
+    .identification,
+    .case__form,
+    .admin__login,
+    .admin__panel {
+        padding: 1rem;
+        margin: 0 0.4rem;
+    }
+    
+    .case__form {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form__input,
+    .form__textarea,
+    .form__select {
+        font-size: 16px;
+    }
+    
+    .chat__input {
+        font-size: 16px;
+    }
+    
+    .container {
+        padding: 0 0.75rem;
+    }
+    
+    .nav {
+        padding: 0.75rem;
+        gap: 0.4rem;
+    }
+    
+    .nav__logo h2 {
+        font-size: 1.4rem;
+    }
+    
+    .nav__menu-btn {
+        font-size: 1.25rem;
+        padding: 0.25rem 0.65rem;
+    }
+    
+    .hero {
+        padding: 1.75rem 0;
+    }
+    
+    .hero__title {
+        font-size: 1.7rem;
+    }
+    
+    .chat-section,
+    .tickets-section,
+    .admin-section,
+    .case-form-section {
+        padding: 2rem 0;
+    }
+    
+    .hero__info {
+        grid-template-columns: 1fr;
+    }
+    
+    .chat__input-area {
+        flex-direction: column;
+    }
+    
+    .chat__input {
+        border-radius: 8px;
+        width: 100%;
+    }
+    
+    .chat__send-btn {
+        border-radius: 8px;
+        width: 100%;
+    }
+    
+    .modal__content {
+        margin: 0.5rem;
+        max-height: 95vh;
+    }
+    
+    .modal__body {
+        padding: 1rem;
+    }
+}
